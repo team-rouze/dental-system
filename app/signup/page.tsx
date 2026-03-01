@@ -2,34 +2,61 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
-    const router = useRouter();
+export default function SignUpPage() {
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirm, setConfirm] = useState("");
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);
+
+        if (password !== confirm) {
+            setError("Passwords do not match.");
+            return;
+        }
+
+        if (password.length < 8) {
+            setError("Password must be at least 8 characters.");
+            return;
+        }
+
         setLoading(true);
 
+        // 1. Register
+        const res = await fetch("/api/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            setError(data.error ?? "Something went wrong. Please try again.");
+            setLoading(false);
+            return;
+        }
+
+        // 2. Auto sign-in with the new credentials
         const result = await signIn("credentials", {
             email,
             password,
             redirect: false,
         });
 
-        setLoading(false);
-
         if (result?.error) {
-            setError("Invalid email or password. Please try again.");
-        } else {
-            router.push("/dashboard");
-            router.refresh();
+            setError("Account created but sign-in failed. Please sign in manually.");
+            setLoading(false);
+            return;
         }
+
+        // 3. Hard redirect so middleware sees fresh session → onboarding gate fires
+        window.location.href = "/onboarding";
     };
 
     return (
@@ -58,14 +85,29 @@ export default function LoginPage() {
 
                 {/* Card */}
                 <div className="card">
-                    <h2 style={{ fontSize: 19, fontWeight: 700, marginBottom: 6, color: "var(--text-primary)" }}>Sign in</h2>
+                    <h2 style={{ fontSize: 19, fontWeight: 700, marginBottom: 6, color: "var(--text-primary)" }}>
+                        Create your account
+                    </h2>
                     <p className="text-sm text-muted" style={{ marginBottom: 24 }}>
-                        Enter your practice credentials to continue.
+                        Set up your practice in minutes. No credit card required.
                     </p>
 
                     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                         <div>
-                            <label className="form-label">Email</label>
+                            <label className="form-label">Full Name</label>
+                            <input
+                                type="text"
+                                className="form-input"
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                                placeholder="Dr. Jane Smith"
+                                required
+                                autoFocus
+                            />
+                        </div>
+
+                        <div>
+                            <label className="form-label">Work Email</label>
                             <input
                                 type="email"
                                 className="form-input"
@@ -73,7 +115,6 @@ export default function LoginPage() {
                                 onChange={e => setEmail(e.target.value)}
                                 placeholder="you@practice.com"
                                 required
-                                autoFocus
                             />
                         </div>
 
@@ -84,7 +125,19 @@ export default function LoginPage() {
                                 className="form-input"
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
-                                placeholder="••••••••"
+                                placeholder="Min. 8 characters"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label className="form-label">Confirm Password</label>
+                            <input
+                                type="password"
+                                className="form-input"
+                                value={confirm}
+                                onChange={e => setConfirm(e.target.value)}
+                                placeholder="Repeat your password"
                                 required
                             />
                         </div>
@@ -101,35 +154,21 @@ export default function LoginPage() {
                             style={{ width: "100%", padding: "11px", fontSize: 14, justifyContent: "center" }}
                             disabled={loading}
                         >
-                            {loading ? <><span className="spinner" /> Signing in…</> : "Sign In"}
+                            {loading
+                                ? <><span className="spinner" /> Creating account…</>
+                                : "Get Started →"
+                            }
                         </button>
                     </form>
                 </div>
 
-                {/* Sign up link */}
+                {/* Sign in link */}
                 <p style={{ textAlign: "center", marginTop: 20, fontSize: 13, color: "var(--text-muted)" }}>
-                    Don&apos;t have an account?{" "}
-                    <a href="/signup" style={{ color: "var(--accent)", fontWeight: 600 }}>
-                        Sign up free
+                    Already have an account?{" "}
+                    <a href="/login" style={{ color: "var(--accent)", fontWeight: 600 }}>
+                        Sign in
                     </a>
                 </p>
-
-                {/* Demo credentials hint */}
-                <div className="card" style={{ marginTop: 14, background: "var(--bg-secondary)" }}>
-                    <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--text-muted)", marginBottom: 10 }}>
-                        Demo Credentials
-                    </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, alignItems: "center" }}>
-                            <span className="badge badge-accent">Admin</span>
-                            <span style={{ fontFamily: "monospace", fontSize: 12, color: "var(--text-secondary)" }}>admin@demo.com / admin123</span>
-                        </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, alignItems: "center" }}>
-                            <span className="badge badge-muted">Staff</span>
-                            <span style={{ fontFamily: "monospace", fontSize: 12, color: "var(--text-secondary)" }}>staff@demo.com / staff123</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     );

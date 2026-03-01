@@ -27,16 +27,23 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     name: user.name,
                     role: user.role,
                     tenantId: user.tenantId,
+                    onboardingComplete: user.onboardingComplete,
                 };
             },
         }),
     ],
     callbacks: {
-        jwt: async ({ token, user }) => {
+        jwt: async ({ token, user, trigger }) => {
             if (user) {
                 token.id = user.id ?? "";
                 token.role = (user as any).role;
                 token.tenantId = (user as any).tenantId;
+                token.onboardingComplete = (user as any).onboardingComplete ?? false;
+            }
+            // When the client calls useSession().update(), re-read from store
+            if (trigger === "update" && token.id) {
+                const fresh = userStore.getById(token.id as string);
+                if (fresh) token.onboardingComplete = fresh.onboardingComplete;
             }
             return token;
         },
@@ -44,6 +51,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             session.user.id = token.id as string;
             (session.user as any).role = token.role;
             (session.user as any).tenantId = token.tenantId;
+            (session.user as any).onboardingComplete = token.onboardingComplete;
             return session;
         },
     },

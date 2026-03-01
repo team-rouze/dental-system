@@ -9,6 +9,7 @@ export interface User {
   name: string;
   role: UserRole;
   tenantId: string;
+  onboardingComplete: boolean;
   createdAt: string;
 }
 

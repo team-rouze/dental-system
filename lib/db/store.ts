@@ -312,6 +312,7 @@ let users: User[] = [
         name: "Admin User",
         role: "admin",
         tenantId: "tenant_demo_001",
+        onboardingComplete: false,
         createdAt: new Date().toISOString(),
     },
     {
@@ -321,6 +322,7 @@ let users: User[] = [
         name: "Staff User",
         role: "staff",
         tenantId: "tenant_demo_001",
+        onboardingComplete: false,
         createdAt: new Date().toISOString(),
     },
 ];
@@ -334,6 +336,26 @@ export const userStore = {
         const idx = users.findIndex(u => u.id === user.id);
         if (idx >= 0) users[idx] = user;
         else users.push(user);
+    },
+    create: (data: { name: string; email: string; passwordHash: string }): User => {
+        const uid = `user_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
+        const tenantId = `tenant_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
+        const newUser: User = {
+            id: uid,
+            email: data.email.toLowerCase(),
+            passwordHash: data.passwordHash,
+            name: data.name,
+            role: "admin",
+            tenantId,
+            onboardingComplete: false,
+            createdAt: new Date().toISOString(),
+        };
+        users.push(newUser);
+        return newUser;
+    },
+    setOnboardingComplete: (id: string): void => {
+        const idx = users.findIndex(u => u.id === id);
+        if (idx >= 0) users[idx] = { ...users[idx], onboardingComplete: true };
     },
     count: (): number => users.length,
 };

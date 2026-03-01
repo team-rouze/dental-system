@@ -6,6 +6,7 @@ declare module "next-auth" {
     interface User {
         role: UserRole;
         tenantId: string;
+        onboardingComplete: boolean;
     }
     interface Session {
         user: {
@@ -14,6 +15,7 @@ declare module "next-auth" {
             name: string;
             role: UserRole;
             tenantId: string;
+            onboardingComplete: boolean;
         };
     }
 }
@@ -23,5 +25,6 @@ declare module "next-auth/jwt" {
         id: string;
         role: UserRole;
         tenantId: string;
+        onboardingComplete: boolean;
     }
 }

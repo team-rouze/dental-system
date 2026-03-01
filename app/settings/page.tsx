@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import type { PracticeSettings, CampaignTemplate, CampaignTemplateStep } from "@/types";
 
-type Tab = "practice" | "campaigns" | "timing";
+type Tab = "practice" | "campaigns" | "timing" | "account";
 
 // ─── Practice Tab ─────────────────────────────────────────────────────────────
 
@@ -343,12 +343,44 @@ function TimingTab() {
     );
 }
 
+// ─── Account Tab ─────────────────────────────────────────────────────────────
+
+function AccountTab() {
+    const [resetting, setResetting] = useState(false);
+
+    const replayOnboarding = async () => {
+        setResetting(true);
+        await fetch("/api/onboarding/reset", { method: "POST" });
+        window.location.href = "/onboarding";
+    };
+
+    return (
+        <div style={{ maxWidth: 560 }}>
+            <div className="card">
+                <h3 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4 }}>Onboarding Walkthrough</h3>
+                <p className="text-sm text-muted" style={{ marginBottom: 20 }}>
+                    Re-run the setup wizard to update your practice details or walk through the onboarding flow again.
+                </p>
+                <button
+                    className="btn btn-primary"
+                    onClick={replayOnboarding}
+                    disabled={resetting}
+                    style={{ justifyContent: "center", padding: "10px 24px" }}
+                >
+                    {resetting ? <><span className="spinner" /> Resetting…</> : "Replay Onboarding →"}
+                </button>
+            </div>
+        </div>
+    );
+}
+
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
 const TABS: { id: Tab; label: string }[] = [
     { id: "practice", label: "Practice Info" },
     { id: "campaigns", label: "Campaign Templates" },
     { id: "timing", label: "Reminder Timing" },
+    { id: "account", label: "Account" },
 ];
 
 export default function SettingsPage() {
@@ -390,6 +422,7 @@ export default function SettingsPage() {
                 {tab === "practice" && <PracticeTab />}
                 {tab === "campaigns" && <CampaignsTab />}
                 {tab === "timing" && <TimingTab />}
+                {tab === "account" && <AccountTab />}
             </div>
         </>
     );
