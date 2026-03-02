@@ -136,25 +136,6 @@ export default function LandingPage() {
                         over $250,000 in recovered production.
                     </p>
 
-                    <div className={styles.statCards}>
-                        <div className={styles.statCard}>
-                            <div className={styles.statValue}>$180</div>
-                            <div className={styles.statLabel}>Average hygiene visit</div>
-                        </div>
-                        <div className={styles.statCard}>
-                            <div className={styles.statValue}>$350+</div>
-                            <div className={styles.statLabel}>
-                                When a cleaning uncovers a cavity
-                            </div>
-                        </div>
-                        <div className={styles.statCard}>
-                            <div className={styles.statValue}>$250K+</div>
-                            <div className={styles.statLabel}>
-                                Annual recovered production from reactivation alone
-                            </div>
-                        </div>
-                    </div>
-
                     <div className={styles.closingLine}>
                         You don&rsquo;t need more patients. You need the ones you already
                         have back in the chair.
