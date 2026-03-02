@@ -16,7 +16,7 @@ export default function LandingPage() {
             <nav className={styles.nav}>
                 <div className={styles.navInner}>
                     <a href="/landing" className={styles.navLogo}>
-                        <img src="/logo-white.svg" alt="Rouze Dental" height={51} className={styles.navLogoImg} />
+                        <img src="/logo-white.svg" alt="Rouze Dental" height={100} className={styles.navLogoImg} />
                     </a>
                     <div className={styles.navActions}>
                         <a href="/login" className={styles.navSignIn}>
