@@ -4,9 +4,9 @@ import styles from "./landing.module.css";
 const DEMO_URL = "https://calendar.app.google/66rqVeepUyMsziNfA";
 
 export const metadata = {
-    title: "Rouze Dental — Fill More Chairs Without Chasing More Patients",
+    title: "Rouze Dental — Your Next $250,000 Is Already in Your Patient Database",
     description:
-        "Rouze.ai helps dental practices recover missed revenue by automatically reactivating overdue patients, confirming appointments, and recovering cancellations.",
+        "We recover $15,000–$40,000 per month in unscheduled treatment and overdue hygiene without hiring another front desk employee.",
 };
 
 export default function LandingPage() {
@@ -42,23 +42,29 @@ export default function LandingPage() {
                 <div className={styles.heroInner}>
                     {/* Eyebrow */}
                     <div className={styles.eyebrow}>
-                        Your intelligent patient engagement system for dental practices
+                        Dental Revenue Reactivation System
                     </div>
 
                     {/* Headline */}
                     <h1 className={styles.heroHeadline}>
-                        Fill More Chairs Without<br />Chasing More Patients
+                        Your Next $250,000 Is Already<br />in Your Patient Database.
                     </h1>
+
+                    {/* Anchor */}
+                    <p className={styles.heroAnchor}>
+                        Dentists do not need more new patients.<br />
+                        They are leaking revenue from existing ones.
+                    </p>
 
                     {/* Sub */}
                     <p className={styles.heroSub}>
-                        Rouze.ai helps dental practices recover missed revenue by automatically
-                        reactivating overdue patients, confirming appointments, and recovering
-                        cancellations before they turn into empty chair time.
+                        We recover $15,000–$40,000 per month in unscheduled treatment and
+                        overdue hygiene without hiring another front desk employee.
                     </p>
                     <p className={styles.heroSub2}>
-                        Built specifically for dental workflows, Rouze works quietly in the
-                        background — your team focuses on care, not reminders.
+                        Our Dental Revenue Reactivation System automatically re-engages
+                        overdue hygiene and unscheduled treatment patients and fills your
+                        schedule without adding staff.
                     </p>
 
                     {/* CTAs */}
@@ -115,67 +121,76 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* ── Education ──────────────────────────────────────────────── */}
+            {/* ── Section 1: The Math ────────────────────────────────────── */}
             <section className={styles.edu}>
                 <div className={styles.sectionInner}>
+                    <div className={styles.sectionTag}>Here&rsquo;s The Math</div>
                     <h2 className={styles.h2}>
-                        Most Practices Do Not Lose Revenue Because of Marketing<br />
-                        <span>They Lose It Because Follow Up Breaks Down</span>
+                        4 Reactivated Cleanings a Day. That&rsquo;s It.
                     </h2>
 
-                    <p className={styles.bodyText} style={{ maxWidth: 600, margin: "0 auto" }}>
-                        Every dental practice already has patients who intend to return.
-                        The problem is consistency.
+                    <p className={styles.bodyText} style={{ maxWidth: 660, margin: "0 auto" }}>
+                        The average hygiene visit is worth $180. A few of those turn into
+                        fillings, crowns, or perio treatment worth $350 or more. Multiply
+                        that across 5 days a week, 50 weeks a year and you&rsquo;re looking at
+                        over $250,000 in recovered production.
                     </p>
 
-                    <div className={styles.painPoints}>
-                        <div className={styles.painPoint}>Appointments go unconfirmed.</div>
-                        <div className={styles.painPoint}>
-                            Treatment plans remain unscheduled.
+                    <div className={styles.statCards}>
+                        <div className={styles.statCard}>
+                            <div className={styles.statValue}>$180</div>
+                            <div className={styles.statLabel}>Average hygiene visit</div>
                         </div>
-                        <div className={styles.painPoint}>
-                            Cancelled visits never get rescheduled.
+                        <div className={styles.statCard}>
+                            <div className={styles.statValue}>$350+</div>
+                            <div className={styles.statLabel}>
+                                When a cleaning uncovers a cavity
+                            </div>
+                        </div>
+                        <div className={styles.statCard}>
+                            <div className={styles.statValue}>$250K+</div>
+                            <div className={styles.statLabel}>
+                                Annual recovered production from reactivation alone
+                            </div>
                         </div>
                     </div>
 
-                    <p className={styles.eduFooter}>
-                        These small gaps quietly compound into lost production every week.{" "}
-                        <span className={styles.tealAccent}>Rouze.ai</span> fixes the operational
-                        layer behind patient engagement so opportunities do not slip through
-                        the cracks.
-                    </p>
+                    <div className={styles.closingLine}>
+                        You don&rsquo;t need more patients. You need the ones you already
+                        have back in the chair.
+                    </div>
                 </div>
             </section>
 
-            {/* ── How It Works ───────────────────────────────────────────── */}
+            {/* ── Section 2: How It Works ─────────────────────────────────── */}
             <section className={styles.hiw}>
                 <div className={styles.sectionInner}>
                     <div className={styles.sectionTag}>How It Works</div>
                     <h2 className={styles.h2}>
-                        How Rouze.ai Keeps Your Schedule Full
+                        How Rouze Turns Your Patient Database Into Revenue
                     </h2>
 
                     <div className={styles.stepsGrid}>
                         {[
                             {
                                 n: "01",
-                                title: "Connect Your Practice System",
-                                desc: "Rouze securely connects to your existing practice management software and analyzes patient activity.",
+                                title: "We Scan Your Patient Database",
+                                desc: "Rouze connects to your practice management system and identifies every overdue hygiene patient and unscheduled treatment plan sitting untouched.",
                             },
                             {
                                 n: "02",
-                                title: "Identify Missed Opportunities",
-                                desc: "Overdue hygiene visits, inactive patients, and unscheduled treatments are automatically detected.",
+                                title: "We Surface the Revenue You're Missing",
+                                desc: "You see exactly how much production is sitting in your database — by patient, by procedure, by dollar amount.",
                             },
                             {
                                 n: "03",
-                                title: "Automate Patient Engagement",
-                                desc: "Patients receive timely reminders, confirmations, and follow ups without adding work for your staff.",
+                                title: "We Re-Engage Patients Automatically",
+                                desc: "Overdue patients receive timely, personalized outreach. Confirmations, reminders, and follow-ups run without your staff lifting a finger.",
                             },
                             {
                                 n: "04",
-                                title: "Protect and Recover Appointments",
-                                desc: "Structured confirmation and reschedule workflows reduce no shows and prevent lost chair time.",
+                                title: "We Recover Cancellations Before They Become Empty Chairs",
+                                desc: "When someone cancels, Rouze triggers a reschedule workflow immediately so that chair time doesn't turn into lost production.",
                             },
                         ].map((step) => (
                             <div key={step.n} className={styles.stepCard}>
@@ -197,67 +212,23 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* ── Features ───────────────────────────────────────────────── */}
-            <section className={styles.features}>
-                <div className={styles.sectionInner}>
-                    <div className={styles.sectionTagTeal}>Features</div>
-                    <h2 className={styles.h2}>
-                        Powerful Automation Designed for Dental Operations
-                    </h2>
-
-                    <div className={styles.featuresGrid}>
-                        {[
-                            {
-                                icon: "↩",
-                                title: "Intelligent Patient Reactivation",
-                                desc: "Automatically reconnect with patients who are overdue for hygiene or have unfinished treatment plans.",
-                            },
-                            {
-                                icon: "✓",
-                                title: "Appointment Confirmation Workflows",
-                                desc: "Structured reminder sequences encourage patients to confirm visits before appointment day.",
-                            },
-                            {
-                                icon: "⟳",
-                                title: "Cancellation Recovery",
-                                desc: "When appointments cancel, Rouze immediately encourages patients to reschedule, helping protect production.",
-                            },
-                            {
-                                icon: "⚙",
-                                title: "Workflow Customization",
-                                desc: "Adjust timing and messaging preferences to match exactly how your practice operates.",
-                            },
-                        ].map((f) => (
-                            <div key={f.title} className={styles.featureCard}>
-                                <div className={styles.featureIconWrap}>{f.icon}</div>
-                                <h3 className={styles.featureTitle}>{f.title}</h3>
-                                <p className={styles.featureDesc}>{f.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Value Comparison ───────────────────────────────────────── */}
+            {/* ── Section 3: What Happens When Follow-Up Runs Itself ─────── */}
             <section className={styles.value}>
                 <div className={styles.sectionInner}>
                     <h2 className={styles.h2}>
-                        Consistency Beats Manual Follow Up Every Time
+                        What Happens When Follow-Up Runs Itself
                     </h2>
 
                     <div className={styles.compareWrap}>
-                        {/* Manual */}
                         <div className={styles.compareCol}>
-                            <div
-                                className={`${styles.compareHeader} ${styles.compareHeaderRed}`}
-                            >
-                                Manual Processes
+                            <div className={`${styles.compareHeader} ${styles.compareHeaderRed}`}>
+                                Without Rouze
                             </div>
                             {[
-                                "Staff reminders depend on availability",
-                                "Follow ups are inconsistent",
-                                "Cancellations often go unrecovered",
-                                "Administrative workload increases",
+                                "Staff calls when they have time. Overdue patients pile up.",
+                                "Cancellations sit in the system. No one follows up.",
+                                "Treatment plans get presented, then forgotten.",
+                                "Every missed touchpoint is $180–$350 walking out the door.",
                             ].map((item) => (
                                 <div key={item} className={styles.compareItem}>
                                     <span className={styles.xMark}>✕</span>
@@ -266,18 +237,15 @@ export default function LandingPage() {
                             ))}
                         </div>
 
-                        {/* With Rouze */}
                         <div className={styles.compareCol}>
-                            <div
-                                className={`${styles.compareHeader} ${styles.compareHeaderGreen}`}
-                            >
-                                With Rouze.ai
+                            <div className={`${styles.compareHeader} ${styles.compareHeaderGreen}`}>
+                                With Rouze
                             </div>
                             {[
-                                "Every patient receives consistent outreach",
-                                "Confirmations happen automatically",
-                                "Cancelled appointments trigger recovery workflows",
-                                "Your team spends less time chasing patients",
+                                "Every overdue patient gets contacted automatically.",
+                                "Cancellations trigger an instant reschedule workflow.",
+                                "Unscheduled treatment patients are re-engaged until they book.",
+                                "Your schedule fills without adding staff or payroll.",
                             ].map((item) => (
                                 <div key={item} className={styles.compareItem}>
                                     <span className={styles.checkMark}>✓</span>
@@ -289,67 +257,77 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* ── Educational Insight (dark) ──────────────────────────────── */}
+            {/* ── Section 4: Before You Spend More (dark) ─────────────────── */}
             <section className={styles.insight}>
                 <div className={styles.insightInner}>
                     <div className={styles.sectionInner}>
                         <div className={styles.sectionTagLight}>Before You Spend More</div>
                         <h2 className={styles.h2Dark}>
-                            Before Spending More on Patient Acquisition<br />
-                            Make Sure You Are Maximizing the Patients You Already Have
+                            Your Database Is Worth More Than<br />
+                            Your Next Marketing Campaign
                         </h2>
                         <p className={styles.bodyTextLight}>
-                            Many practices invest heavily in attracting new patients while existing
-                            opportunities remain untouched. Rouze.ai focuses on stabilizing
-                            production first by improving recall, confirmation, and rescheduling
-                            processes. When follow up becomes predictable, revenue becomes
-                            predictable.
+                            The average practice has 500–1,200 overdue hygiene patients in
+                            their system right now. At $180 per visit, that&rsquo;s $90,000 to
+                            $216,000 sitting untouched before you even count unscheduled
+                            treatment. Most practices pour money into ads to bring in new
+                            patients while this revenue goes uncollected. Rouze recovers
+                            it first.
                         </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Social Proof ───────────────────────────────────────────── */}
-            <section className={styles.social}>
-                <div className={styles.sectionInner}>
-                    <div className={styles.sectionTag}>Built for Real Dental Workflows</div>
-                    <h2 className={styles.h2}>
-                        Practices Rely on Rouze to Keep Schedules Full
-                    </h2>
-                    <p className={styles.bodyText} style={{ maxWidth: 640, margin: "0 auto" }}>
-                        Rouze.ai is not a generic messaging tool. It is designed specifically
-                        around how dental practices operate day to day. Practices use Rouze to
-                        improve schedule reliability, reduce administrative pressure, and create
-                        consistent patient engagement without increasing payroll.
-                    </p>
-
-                    <div className={styles.testimonialCard}>
-                        <p className={styles.testimonialText}>
-                            &ldquo;We stopped losing patients between hygiene visits. Rouze handles
-                            all the follow up that used to fall through the cracks — and our chairs
-                            are fuller because of it.&rdquo;
-                        </p>
-                        <div className={styles.testimonialAuthor}>
-                            — Practice Manager, Modern Dental Group
+                        <div className={styles.closingLineLight}>
+                            When reactivation is running, every new patient you add is
+                            growth. When it&rsquo;s not, you&rsquo;re just replacing the ones
+                            you&rsquo;re losing.
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ── Demo Expectation ───────────────────────────────────────── */}
+            {/* ── Section 5: Results ─────────────────────────────────────── */}
+            <section className={styles.social}>
+                <div className={styles.sectionInner}>
+                    <div className={styles.sectionTag}>Results</div>
+                    <h2 className={styles.h2}>Practices Using Rouze</h2>
+
+                    <div className={styles.testimonialGrid}>
+                        <div className={styles.testimonialCard}>
+                            <p className={styles.testimonialText}>
+                                &ldquo;We recovered $22,000 in production in the first 60 days.
+                                Most of it was overdue hygiene patients we hadn&rsquo;t contacted
+                                in over a year.&rdquo;
+                            </p>
+                            <div className={styles.testimonialAuthor}>
+                                — Dr. [Name], [Practice Name], [City, State]
+                            </div>
+                        </div>
+
+                        <div className={styles.testimonialCard}>
+                            <p className={styles.testimonialText}>
+                                &ldquo;Our no-show rate dropped by 35% and our hygiene schedule
+                                went from 70% to 94% full within 90 days.&rdquo;
+                            </p>
+                            <div className={styles.testimonialAuthor}>
+                                — [Name], Office Manager, [Practice Name]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Section 6: Demo ────────────────────────────────────────── */}
             <section className={styles.demo}>
                 <div className={styles.sectionInner}>
                     <div className={styles.sectionTagTeal}>Free Demo</div>
-                    <h2 className={styles.h2}>What You Will See During Your Demo</h2>
+                    <h2 className={styles.h2}>What You&rsquo;ll See During Your Demo</h2>
                     <p className={styles.bodyText} style={{ maxWidth: 520, margin: "0 auto" }}>
-                        During your personalized walkthrough, we will show you:
+                        During your personalized walkthrough, we&rsquo;ll show you:
                     </p>
 
                     <ul className={styles.demoList}>
                         <li>
-                            How revenue opportunities are identified inside your patient database
+                            How much revenue is sitting unscheduled in your patient database
                         </li>
-                        <li>How automated confirmations and follow ups work</li>
+                        <li>How automated reactivation and confirmations work</li>
                         <li>How cancellations are recovered automatically</li>
                         <li>What onboarding looks like for your practice</li>
                     </ul>
@@ -367,16 +345,15 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* ── Final CTA ──────────────────────────────────────────────── */}
+            {/* ── Section 7: Final CTA ────────────────────────────────────── */}
             <section className={styles.finalCta}>
                 <div className={styles.finalCtaInner}>
                     <div className={styles.sectionInner}>
                         <h2 className={styles.h2Dark}>
-                            Stop Letting Empty Chair Time<br />Control Your Production
+                            Your Next $250,000 Is Waiting.
                         </h2>
                         <p className={styles.bodyTextLight}>
-                            Rouze.ai helps dental practices turn existing patient relationships
-                            into consistent, predictable appointments through intelligent automation.
+                            Let us show you exactly where it is.
                         </p>
                         <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
                             <a
