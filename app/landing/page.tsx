@@ -16,7 +16,7 @@ export default function LandingPage() {
             <nav className={styles.nav}>
                 <div className={styles.navInner}>
                     <a href="/landing" className={styles.navLogo}>
-                        <img src="/logo-white.svg" alt="Rouze Dental" height={52} className={styles.navLogoImg} />
+                        <img src="/logo-white.svg" alt="Rouze Dental" height={208} className={styles.navLogoImg} />
                     </a>
                     <div className={styles.navActions}>
                         <a href="/login" className={styles.navSignIn}>
@@ -356,7 +356,7 @@ export default function LandingPage() {
             <footer className={styles.footer}>
                 <div className={styles.footerInner}>
                     <div className={styles.footerLogo}>
-                        <img src="/logo-white.svg" alt="Rouze Dental" height={44} className={styles.footerLogoImg} />
+                        <img src="/logo-white.svg" alt="Rouze Dental" height={176} className={styles.footerLogoImg} />
                     </div>
 
                     <p className={styles.footerTagline}>
