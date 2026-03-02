@@ -103,19 +103,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* ── Trust Bar ──────────────────────────────────────────────── */}
-            <section className={styles.trustBar}>
-                <div className={styles.sectionInner}>
-                    <p className={styles.trustLabel}>
-                        Trusted by modern dental teams focused on predictable production
-                    </p>
-                    <div className={styles.trustLogos}>
-                        {[1, 2, 3, 4, 5].map((i) => (
-                            <div key={i} className={styles.logoPill} />
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* ── Section 1: The Math ────────────────────────────────────── */}
             <section className={styles.edu}>
