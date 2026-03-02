@@ -16,11 +16,7 @@ export default function LandingPage() {
             <nav className={styles.nav}>
                 <div className={styles.navInner}>
                     <a href="/landing" className={styles.navLogo}>
-                        <img src="/logo.png" alt="Rouze Dental" width={34} height={34} />
-                        <div className={styles.navLogoText}>
-                            <strong>Rouze Dental</strong>
-                            <span>Revenue Reactivation</span>
-                        </div>
+                        <img src="/logo-white.svg" alt="Rouze Dental" height={34} className={styles.navLogoImg} />
                     </a>
                     <div className={styles.navActions}>
                         <a href="/login" className={styles.navSignIn}>
@@ -360,11 +356,7 @@ export default function LandingPage() {
             <footer className={styles.footer}>
                 <div className={styles.footerInner}>
                     <div className={styles.footerLogo}>
-                        <img src="/logo.png" alt="Rouze Dental" width={28} height={28} />
-                        <div className={styles.footerLogoText}>
-                            <strong>Rouze Dental</strong>
-                            <span>Revenue Reactivation</span>
-                        </div>
+                        <img src="/logo-white.svg" alt="Rouze Dental" height={28} className={styles.footerLogoImg} />
                     </div>
 
                     <p className={styles.footerTagline}>

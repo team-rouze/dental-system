@@ -42,31 +42,11 @@
     color: #fff;
 }
 
-.navLogo img {
-    width: 34px;
+.navLogoImg {
     height: 34px;
+    width: auto;
     object-fit: contain;
-}
-
-.navLogoText {
-    display: flex;
-    flex-direction: column;
-}
-
-.navLogoText strong {
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-}
-
-.navLogoText span {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.35);
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    line-height: 1;
+    display: block;
 }
 
 .navActions {
@@ -879,25 +859,11 @@
     gap: 10px;
 }
 
-.footerLogo img {
-    width: 28px;
+.footerLogoImg {
     height: 28px;
+    width: auto;
     object-fit: contain;
-}
-
-.footerLogoText strong {
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
     display: block;
-    letter-spacing: -0.01em;
-}
-
-.footerLogoText span {
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.30);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
 }
 
 .footerTagline {
