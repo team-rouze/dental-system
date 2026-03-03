@@ -1,9 +1,10 @@
 import { auth } from "@/auth";
+import type { NextAuthRequest } from "next-auth";
 import { NextResponse } from "next/server";
 
 const ADMIN_ONLY = ["/settings"];
 
-export default auth((req) => {
+export default auth((req: NextAuthRequest) => {
     const { nextUrl, auth: session } = req;
 
     // Public routes: landing page, sign-up page, and registration API
@@ -48,5 +49,5 @@ export default auth((req) => {
 });
 
 export const config = {
-    matcher: ["/((?!login|api/auth|_next/static|_next/image|favicon.ico).*)"],
+    matcher: ["/((?!login|api/auth|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff2?|ttf|otf|css|js)$).*)"],
 };
